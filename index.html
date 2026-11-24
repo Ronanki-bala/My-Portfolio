@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ronanki Bala | Python Developer</title>
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --secondary: #eab308;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* =========================
+           HERO / ABOUT
+        ========================= */
+
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--bg-color);
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        .sections {
+            padding: 3rem 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--card-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        /* =========================
+           SKILLS & EDUCATION
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            font-size: 1.15rem;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .project-content {
+            padding: 1.7rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h4 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        /* =========================
+           PROJECT TAGS
+        ========================= */
+
+        .tags {
+            margin-bottom: 1.2rem;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-color);
+            border: 1px solid #475569;
+            color: var(--text-main);
+            border-radius: 5px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--card-bg);
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem;
+            }
+
+            nav a {
+                margin: 0 0.3rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>&lt;Python.Dev /&gt;</h1>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#internships">Internships</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <div class="container">
+
+        <!-- =========================
+             ABOUT SECTION
+        ========================== -->
+
+        <section id="about" class="hero">
+
+            <h2>
+                Hi, I'm
+                <span>Ronanki Bala</span>
+            </h2>
+
+            <p>
+                Motivated and detail-oriented Python Developer with strong
+                knowledge of Python programming, Object-Oriented Programming
+                (OOP), Django, database management, and web development.
+
+                Hands-on experience in developing applications such as
+                Railway Ticket Booking Systems, Student Management Systems,
+                and E-Commerce Web Scraping tools.
+
+                Skilled in CRUD operations, Django ORM, data handling,
+                web scraping, and problem-solving.
+
+                Familiar with HTML, CSS, JavaScript, and SQLite.
+                Eager to contribute technical skills and develop efficient
+                software solutions in a professional environment.
+            </p>
+
+            <a href="#projects" class="btn">
+                View My Projects
+            </a>
+
+        </section>
+
+        <!-- =========================
+             SKILLS SECTION
+        ========================== -->
+
+        <section id="skills" class="sections">
+
+            <h3>Technical Skills</h3>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <h4>Programming Language</h4>
+
+                    <p>
+                        Python
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Web Technologies</h4>
+
+                    <p>
+                        HTML,
+                        CSS,
+                        JavaScript
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Framework</h4>
+
+                    <p>
+                        Django
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Libraries</h4>
+
+                    <p>
+                        NumPy,
+                        Pandas,
+                        Matplotlib,
+                        Seaborn,
+                        BeautifulSoup(bs4)
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Database</h4>
+
+                    <p>
+                        SQL,
+                        SQLite,
+                        MongoDB
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Data Visualization</h4>
+
+                    <p>
+                        Power BI
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Tools & Version Control</h4>
+
+                    <p>
+                        VS Code,
+                        Google Colab,
+                        Git,
+                        GitHub
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             EDUCATION SECTION
+        ========================== -->
+
+        <section id="education" class="sections">
+
+            <h3>Education</h3>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <h4>SRK Institute of Technology</h4>
+
+                    <p>
+                        Bachelor of Technology<br>
+                        Computer Science and Engineering<br>
+                        2022 – 2026<br>
+                        CGPA: 8.7/10
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Sri Chaitanya Junior College</h4>
+
+                    <p>
+                        Intermediate (MPC)<br>
+                        2020 – 2022<br>
+                        CGPA: 9.0/10
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Z. P. High School</h4>
+
+                    <p>
+                        SSC<br>
+                        2020<br>
+                        CGPA: 9.0/10
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             PROJECTS SECTION
+        ========================== -->
+
+        <section id="projects" class="sections">
+
+            <h3>Projects</h3>
+
+            <div class="projects-grid">
+
+                <!-- PROJECT 1 -->
+
+                <div class="project-card">
+
+                    <div class="project-content">
+
+                        <h4>
+                            Student Management System using Django
+                        </h4>
+
+                        <p>
+                            Developed a web-based application to manage
+                            student records using Django and Python.
+
+                            Implemented CRUD operations and integrated
+                            SQLite using Django ORM for efficient
+                            data management.
+
+                            Followed MVT architecture with URL routing,
+                            form handling, and reusable templates.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">SQLite</span>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Bhuvana-2205"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Source Code &rarr;
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-content">
+
+                        <h4>
+                            Railway Ticket Booking System using Python
+                        </h4>
+
+                        <p>
+                            Developed a console-based railway reservation
+                            application using Object-Oriented Programming.
+
+                            Implemented user registration, login,
+                            train details, ticket booking, and seat
+                            availability validation.
+
+                            Generated unique PNR numbers and supported
+                            multiple passenger bookings with
+                            exception handling.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Python</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Exception Handling</span>
+                            <span class="tag">Random Module</span>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Ronanki-bala/Railway-Ticket-Booking-System.git"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Source Code &rarr;
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- PROJECT 3 -->
+
+                <div class="project-card">
+
+                    <div class="project-content">
+
+                        <h4>
+                            E-Commerce Product Web Scraping using Python
+                        </h4>
+
+                        <p>
+                            Developed a web scraping application to extract
+                            product names and prices from e-commerce websites.
+
+                            Used Requests and BeautifulSoup to retrieve
+                            webpage content and parse HTML elements.
+
+                            Processed and organized extracted product
+                            data using Pandas.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Python</span>
+                            <span class="tag">Requests</span>
+                            <span class="tag">BeautifulSoup</span>
+                            <span class="tag">Pandas</span>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Bhuvana-2205"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Source Code &rarr;
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             INTERNSHIP EXPERIENCE
+        ========================== -->
+
+        <section id="internships" class="sections">
+
+            <h3>Internships</h3>
+
+            <div class="projects-grid">
+
+                <!-- INTERNSHIP 1 -->
+
+                <div class="project-card">
+
+                    <div class="project-content">
+
+                        <h4>
+                            SmartBridge Internship - Full Stack Development
+                        </h4>
+
+                        <p>
+                            Developed a full-stack e-commerce platform
+                            with user authentication, product catalog,
+                            smart product recommendations, secure
+                            payments, order tracking, and an admin
+                            dashboard.
+
+                            Worked on frontend and backend components
+                            to build a responsive and user-friendly
+                            e-commerce application.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Express.js</span>
+                            <span class="tag">React.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MERN Stack</span>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Bhuvana-2205"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Source Code &rarr;
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- INTERNSHIP 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-content">
+
+                        <h4>
+                            Plasmid Internship - Web Development
+                        </h4>
+
+                        <p>
+                            Built and deployed a responsive personal
+                            portfolio website using HTML, CSS, and
+                            JavaScript.
+
+                            Designed a clean and user-friendly interface
+                            with structured sections and responsive
+                            layouts.
+
+                            Ensured cross-device compatibility to provide
+                            a consistent browsing experience across
+                            different screen sizes.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive Design</span>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Bhuvana-2205"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-link"
+                        >
+                            View Source Code &rarr;
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             CERTIFICATIONS SECTION
+        ========================== -->
+
+        <section id="certifications" class="sections">
+
+            <h3>Certifications</h3>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <h4>Python Full Stack with AI</h4>
+
+                    <p>
+                        Certification from PythonLife
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h4>Generative AI by Google Cloud</h4>
+
+                    <p>
+                        L4G Certification
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             CONTACT SECTION
+        ========================== -->
+
+        <section id="contact" class="sections">
+
+            <h3>Let's Connect</h3>
+
+            <div class="contact-info">
+
+                <p>
+                    Email:
+                    <a href="mailto:balaronanki@gmail.com">
+                        balaronanki@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    LinkedIn:
+                    <a
+                        href="https://www.linkedin.com/in/ronanki-bala"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        linkedin.com/in/ronanki-bala
+                    </a>
+                </p>
+
+                <p>
+                    GitHub:
+                    <a
+                        href="https://github.com/Ronanki-bala"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        github.com/Bhuvana-2205
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Ronanki Bala. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
