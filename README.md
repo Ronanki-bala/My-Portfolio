@@ -37,7 +37,7 @@ A modern, responsive portfolio website designed to highlight my development skil
 ## 📬 Connect With Me
 
 - **Email:** balaronanki@gmail.com
-- **LinkedIn:** [Ronanki Bala](https://www.linkedin.com/in/ronanki-bala)
+- **LinkedIn:** www.linkedin.com/in/ronanki-bala
 - **GitHub:** https://github.com/Ronanki-bala
 
 ---
